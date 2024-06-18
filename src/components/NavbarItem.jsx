@@ -7,8 +7,8 @@ import { useSearchParams } from 'next/navigation';
 export default function NavbarItem({ title, param, isActive }) {
   const searchParams = useSearchParams();
   const genre = searchParams.get('genre');
-  const baseClasses = 'm-2 hover:text-blue-600 font-semibold p-2';
-  const activeClasses = 'text-blue-500 underline';
+  const baseClasses = 'm-2 text-white bg-roxo-hover font-semibold p-2';
+  const activeClasses = 'text-roxo underline';
 
   return (
     <div>

@@ -2,3 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-preto{
+    color: #181818;
+
+}
+
+.bg-preto{
+    background-color:  #181818;
+
+}
+
+.bg-roxo-hover :hover{
+    background-color:  #6356FE;
+
+}
+
+.text-roxo{
+    color: #6356FE;
+
+}
+
+.bg-roxo{
+    background-color:  #6356FE;
+
+}
+
+.text-roxo-hover :hover{
+    color: #6356FE;
+}

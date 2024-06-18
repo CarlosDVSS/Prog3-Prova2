@@ -14,10 +14,10 @@ export default function Header() {
       <div className='flex items-center gap-4'>
         
         <Link href={'/'} className='flex gap-1 items-center'>
-          <span className='text-2xl text-white font-bold bg-blue-500 py-1 px-2 rounded-lg'>
+          <span className='text-2xl text-white font-bold bg-roxo py-1 px-2 rounded-lg'>
             AboutMovie
           </span>
-          <span className='text-xl hidden sm:inline'>JS</span>
+          <span className='text-xl text-white hidden sm:inline'>JS</span>
         </Link>
       </div>
     </div>

@@ -2,7 +2,6 @@ import Image from 'next/image';
 
 
 export default async function MoviePage({ params }) {
-  console.log(params)
   const mediaId = params.id;
   const apiKey = process.env.API_KEY;
 
@@ -19,7 +18,7 @@ export default async function MoviePage({ params }) {
 
   if(mediaId != 'spinner.svg'){
     try {
-      console.log(`https://api.themoviedb.org/3/movie/${mediaId}?api_key=${apiKey}&language=en-US`);
+
       let res = await fetch(`https://api.themoviedb.org/3/movie/${mediaId}?api_key=${apiKey}&language=en-US`);
   
       if (!res.ok) {
@@ -28,33 +27,11 @@ export default async function MoviePage({ params }) {
         isMovie = false;
       }
   
-      if (isMovie) {
-        console.log(res);
-        media = await res.json();
-      } else {
-        res = await fetch(`https://api.themoviedb.org/3/tv/${mediaId}?api_key=${apiKey}&language=en-US`);
-        console.log('ricardo', res);
-        if (!res.ok) {
-          const errorData = await res.json();
-          console.error('Error fetching TV show data:', errorData);
-          throw new Error('Failed to fetch TV show data');
-        }
-  
-        media = await res.json();
-      }
-  
-      let episodes = [];
-      if (!isMovie) {
-        const seasonsRes = await fetch(`https://api.themoviedb.org/3/tv/${mediaId}/season/1?api_key=${apiKey}&language=en-US`);
-        if (seasonsRes.ok) {
-          const seasonData = await seasonsRes.json();
-          episodes = seasonData.episodes;
-        }
-      }
+      media = await res.json();
   
       return (
         <div className='w-full'>
-          <div className='p-4 md:pt-8 flex flex-col md:flex-row content-center max-w-6xl mx-auto md:space-x-6'>
+          <div className='p-4 md:pt-8 flex flex-col md:flex-row content-center max-w-6xl mx-auto md:space-x-6 text-white'>
             <Image
               src={`https://image.tmdb.org/t/p/original/${media.backdrop_path || media.poster_path}`}
               width={500}
@@ -73,19 +50,6 @@ export default async function MoviePage({ params }) {
                 <span className='font-semibold mr-1'>Rating:</span>
                 {media.vote_average}
               </p>
-              {episodes.length > 0 && (
-                <div>
-                  <h3 className='text-lg font-bold mb-3'>Episodes</h3>
-                  <ul>
-                    {episodes.map((episode) => (
-                      <li key={episode.id} className='mb-2'>
-                        <p className='font-semibold'>{episode.name}</p>
-                        <p>{episode.overview}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
             </div>
           </div>
         </div>
