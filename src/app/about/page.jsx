@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className='max-w-6xl mx-auto p-3 space-y-4'>
+    <div className='max-w-6xl mx-auto p-3 space-y-4 text-white'>
       <h1 className='text-2xl font-medium text-roxo mt-2'>About</h1>
       <p>This project was developed by two Computer Science students from the State University of Piauí (UESPI), under the guidance of Professor Eyder Rios.</p>
     

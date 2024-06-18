@@ -30,3 +30,7 @@
 .text-roxo-hover :hover{
     color: #6356FE;
 }
+
+.border-roxo{
+    border-color: #6356FE;
+}

@@ -7,7 +7,7 @@ export default function Card({ result }) {
   console.log(`/${result.media_type}/${result.id}`);
 
   return (
-    <div className='group cursor-pointer sm:hover:shadow-slate-400 sm:shadow-md rounded-lg sm:border sm:border-slate-300 sm:m-2 transition-shadow duration-200'>
+    <div className='group cursor-pointer sm:hover:shadow-slate-400 sm:shadow-md rounded-xl sm:border border-roxo sm:m-2 transition-shadow duration-200'>
       <Link href={`/${result.media_type}/${result.id}`}>
         <Image
           src={`https://image.tmdb.org/t/p/original/${
