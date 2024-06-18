@@ -8,7 +8,7 @@ export default function NavbarItem({ title, param, isActive }) {
   const searchParams = useSearchParams();
   const genre = searchParams.get('genre');
   const baseClasses = 'm-2 text-white bg-roxo-hover font-semibold p-2';
-  const activeClasses = 'text-roxo underline';
+  const activeClasses = 'text-preto underline';
 
   return (
     <div>
