@@ -16,7 +16,7 @@ export default function Pagination({ currentPage }) {
             pathname: '/',
             query: { genre, page: currentPageNumber - 1 }
           }}
-          className='m-2 hover:text-amber-600 font-semibold p-2'
+          className='m-2 hover:text-blue-600 font-semibold p-2'
         >
           Previous
         </Link>
@@ -26,7 +26,7 @@ export default function Pagination({ currentPage }) {
           pathname: '/',
           query: { genre, page: currentPageNumber + 1 }
         }}
-        className='m-2 hover:text-amber-600 font-semibold p-2'
+        className='m-2 hover:text-blue-600 font-semibold p-2'
       >
         Next
       </Link>

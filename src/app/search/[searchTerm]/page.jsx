@@ -7,16 +7,13 @@ export default async function SearchPage({ params }) {
     const resMovies = await fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${searchTerm}&language=en-US&page=1&include_adult=false`
     );
-    const resTv = await fetch(
-      `https://api.themoviedb.org/3/search/tv?api_key=${process.env.API_KEY}&query=${searchTerm}&language=en-US&page=1&include_adult=false`
-    );
-
+    
     const dataMovies = await resMovies.json();
-    const dataTv = await resTv.json();
+    
 
-    results = [...dataMovies.results, ...dataTv.results].map(item => ({
+    results = [...dataMovies.results].map(item => ({
       ...item,
-      media_type: item.title ? 'movie' : 'tv'
+      media_type: 'movie' 
     }));
   } catch (error) {
     console.error("Failed to fetch search results:", error);

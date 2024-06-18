@@ -11,23 +11,18 @@ export default async function Home({ searchParams }) {
   const genreQuery = genreId ? `&with_genres=${genreId}` : '';
 
   const yearQueryMovie = `&primary_release_year=2024`;
-  const yearQueryTv = `&first_air_date.gte=2024-01-01`;
 
 
   const resMovies = await fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&page=${page}${genreQuery}${yearQueryMovie}`
   );
-  const resTvShows = await fetch(
-    `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=en-US&page=${page}${genreQuery}${yearQueryTv}`
-  );
+  
 
   const dataMovies = await resMovies.json();
-  const dataTvShows = await resTvShows.json();
 
-
-  const results = [...dataMovies.results, ...dataTvShows.results].map(item => ({
+  const results = [...dataMovies.results].map(item => ({
     ...item,
-    media_type: item.title ? 'movie' : 'tv'
+    media_type: 'movie'
   }));
 
   results.forEach(element => {
@@ -43,7 +38,7 @@ export default async function Home({ searchParams }) {
     element.genres = genresMovie;
   });
 
-  if (!resMovies.ok || !resTvShows.ok) {
+  if (!resMovies.ok) {
     throw new Error('Failed to fetch data');
   }
 

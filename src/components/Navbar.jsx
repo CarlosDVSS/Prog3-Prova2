@@ -8,7 +8,7 @@ export default function Navbar() {
   const selectedGenre = searchParams.get('genre');
 
   return (
-    <div className='flex dark:bg-gray-600 bg-amber-100 p-4 lg:text-lg justify-center gap-6 flex-wrap max-w-6xl mx-auto'>
+    <div className='flex dark:bg-gray-600 bg-blue-100 p-4 lg:text-md justify-center gap-6 flex-wrap max-w-6xl mx-auto'>
       {genres.map((genre) => (
         <NavbarItem
           key={genre.id}
